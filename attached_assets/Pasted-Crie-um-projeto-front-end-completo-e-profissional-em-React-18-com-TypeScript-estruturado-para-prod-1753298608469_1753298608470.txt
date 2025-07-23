@@ -1,0 +1,216 @@
+Crie um projeto front-end completo e profissional em React 18+ com TypeScript, estruturado para produção com qualidade nível sênior, baseado no seguinte cenário:
+
+🎯 Contexto
+Construir uma SPA para um marketplace de trocas de cartas colecionáveis, que se conecta a uma API pública RESTful. A aplicação deve ser desenvolvida de forma escalável, resiliente, performática e com ótima UX.
+
+🚧 Tecnologias e Ferramentas Obrigatórias
+React 18+ (SPA com React Router v6+)
+
+TypeScript com tipagem estrita (strict: true)
+
+Zustand para gerenciamento de estado global
+
+React Hook Form + Zod para validações robustas
+
+Axios com interceptors configurados
+
+TailwindCSS + HeadlessUI/Radix UI para componentes acessíveis
+
+Vite como bundler
+
+React Query (ou TanStack Query) para dados remotos (cache, refetching, retry, pagination)
+
+React Toastify ou Sonner para notificações
+
+ESLint + Prettier + Husky + Commitlint (padronização e qualidade de código)
+
+Vitest + Testing Library (testes unitários e de componentes)
+
+🧱 Arquitetura
+Implemente um padrão modular e escalável, utilizando uma arquitetura limpa com separação de camadas:
+
+bash
+Copiar
+Editar
+src/
+├── api/              # Requisições e configuração do Axios
+├── features/         # Domínios isolados por contexto (auth, cards, trades)
+│   └── cards/
+│       ├── components/
+│       ├── pages/
+│       ├── services/
+│       ├── store/
+│       └── types/
+├── shared/           # Componentes e utilitários reutilizáveis
+│   ├── components/
+│   ├── hooks/
+│   ├── types/
+│   └── utils/
+├── router/           # Rotas privadas/públicas
+├── store/            # Global Zustand stores
+├── styles/           # Tailwind config, tokens
+├── tests/            # Testes de unidade e integração
+└── main.tsx
+✅ Funcionalidades Obrigatórias
+Implemente com atenção a design patterns, UX e qualidade de código:
+
+1. Autenticação
+Registro e login (/register, /login)
+
+Gerenciar token JWT
+
+Axios interceptor para envio automático e logout em 401
+
+Proteção de rotas com guardas reativos
+
+Contexto de usuário via Zustand
+
+2. Cartas
+Listar todas as cartas do sistema com paginação (/cards)
+
+Listar cartas do usuário (/me/cards)
+
+Adicionar carta à conta (POST /me/cards)
+
+Exibir visualmente com imagens, nomes, descrições e datas
+
+3. Trocas
+Criar uma solicitação de troca:
+
+Selecione cartas ofertadas (usuário)
+
+Selecione cartas desejadas (todas do sistema)
+
+Listar todas trocas abertas (/trades)
+
+Exibir nome do criador da troca e visualização das cartas
+
+Permitir deletar trocas criadas pelo usuário
+
+💡 Comportamentos e Interações
+Use loading states, skeletons e placeholders
+
+Mostre notificações com toasts para erros e ações
+
+Redirecione após login/logout
+
+Use modais acessíveis para formulários de troca/cartas
+
+Armazene sessão com localStorage persistido via Zustand middleware
+
+🧠 UX/UI
+Layout responsivo e mobile-first
+
+Navbar fixa com nome do usuário autenticado
+
+Componentes como:
+
+CardItem
+
+TradeCard
+
+CardSelectorModal
+
+TradeList
+
+AuthGuard
+
+Use Tailwind com tokens e design consistente (espaçamentos, cores, etc.)
+
+Dark mode opcional
+
+🛠️ Infra e Qualidade
+ESLint + Prettier com config robusta
+
+Husky + Lint-staged para pre-commit
+
+Conventional Commits + Commitlint
+
+Ambiente .env para configuração da base URL da API
+
+README profissional com seções:
+
+Visão geral
+
+Tecnologias usadas
+
+Setup local
+
+Deploy
+
+Arquitetura
+
+Decisões técnicas
+
+Pontos inacabados (se houver)
+
+🔒 Segurança e Robustez
+Timeout nas requisições
+
+Retry automático com React Query para requisições falhas
+
+Interceptor que mostra toast global no 401, 403, 500
+
+Logout automático em falha de autenticação
+
+Fallbacks de erro em todas requisições assíncronas
+
+Testes unitários de stores e componentes críticos
+
+🔎 Revisão esperada (nível sênior)
+Critério	Expectativa
+Arquitetura	Escalável, clara, com separação por domínio e baixa acoplamento
+Código	Limpo, padronizado, tipado, testável, sem any solto
+UX	Intuitiva, com feedback em cada ação, mobile-ready
+Componentização	Máximo reaproveitamento, mínima duplicação
+Performance	Uso de cache, React.memo, lazy loading
+Erros	Captura, exibição e logging centralizados
+Deploy	Publicado em ambiente acessível, com config .env correta
+Commits	Estruturados e significativos, seguindo padrão conventional commits
+
+📄 API Base
+Base URL: https://cards-marketplace-api-2fjj.onrender.com
+
+Rotas disponíveis:
+
+POST /register
+
+POST /login
+
+GET /me
+
+GET /cards, GET /cards/:id
+
+POST /me/cards
+
+POST /trades, GET /trades, DELETE /trades/:id
+
+📦 Deploy
+Use Vercel ou Netlify
+
+Configure vite.config.ts e .env com VITE_API_BASE_URL
+
+URL de produção no README
+
+📚 Testes
+Teste de unidade de zustand store de auth
+
+Teste de integração do fluxo de login
+
+Teste de snapshot para componente TradeList
+
+Cobertura mínima esperada: 60%+
+
+Esse projeto deve representar um código de nível sênior, pronto para produção, extensível por outros devs e com forte atenção à experiência do usuário, legibilidade e desacoplamento de responsabilidades.
+
+🔚 Finalização
+Publique o repositório no GitHub com:
+
+Readme completo
+
+Commits bem divididos
+
+Deploy em produção
+
+🧩 Observações Finais
+Qualquer requisito não implementado deve estar listado e justificado no README. Nunca entregue um projeto com feature faltando sem explicação.
